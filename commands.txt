@@ -1,4 +1,5 @@
 ENTER to boot
+
 gdisk /dev/sda
 n + (3) ENTER ENTER ENTER
 +1M + ENTER
@@ -8,12 +9,10 @@ w + ENTER + y + ENTER
 
 mkfs.ext4 /dev/sda2 && mount dev/sda2 /mnt
 
-vim /etc/pacman.conf && /Para + ENTER + 0x:wq
-
 tmux
 
 pacstrap /mnt base linux linux-firmware grub fastfetch >& out
 
 ctrl + b, "
 
-genfstab -U /mnt > /mnt/etc/fstab; arch-chroot /mnt bash -c 'grub-install --target=i386-pc /dev/sda; grub-mkconfig -o /boot/grub/grub.cfg; echo "a" | passwd'; reboot
+genfstab -U /mnt > /mnt/etc/fstab; arch-chroot /mnt bash -c 'grub-install --target=i386-pc /dev/sda; grub-mkconfig -o /boot/grub/grub.cfg; echo "a" | passwd; sed -i 's/^#en_US.UTF-8/en_US.UTF-8/' /etc/locale.gen; locale-gen'; reboot/ 
