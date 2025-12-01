@@ -10,6 +10,10 @@ mkfs.ext4 /dev/sda2 && mount dev/sda2 /mnt
 
 vim /etc/pacman.conf && /Para + ENTER + 0x:wq
 
-pacstrap /mnt base linux linux-firmware grub
+tmux
 
-genfstab -U /mnt > /mnt/etc/fstab; arch-chroot /mnt bash -c 'grub-install --target=i386-pc /dev/sda; grub-mkconfig -o /boot/grub/grub.cfg'; reboot
+pacstrap /mnt base linux linux-firmware grub fastfetch >& out
+
+ctrl + b, "
+
+genfstab -U /mnt > /mnt/etc/fstab; arch-chroot /mnt bash -c 'grub-install --target=i386-pc /dev/sda; grub-mkconfig -o /boot/grub/grub.cfg; echo "a" | passwd'; reboot
