@@ -18,3 +18,4 @@ if [ ! -f "/dev/${device}" ]; then
 	reboot
 fi
 echo "device ${device} doesn't exist"
+fdisk -l
