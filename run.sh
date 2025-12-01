@@ -8,4 +8,4 @@ sed -i 's/^ParallelDownloads = 5/ParallelDownloads = 100/' /etc/pacman.conf
 
 pacstrap /mnt base linux linux-firmware grub
 
-genfstab -U /mnt > /mnt/etc/fstab; arch-chroot /mnt bash -c 'grub-install --target=i386-pc /dev/sda; grub-mkconfig -o /boot/grub/grub.cfg'; reboot
+genfstab -U /mnt > /mnt/etc/fstab; arch-chroot /mnt bash -c 'grub-install --target=i386-pc /dev/sda; grub-mkconfig -o /boot/grub/grub.cfg'
