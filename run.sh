@@ -13,7 +13,9 @@ if [ ! -f "/dev/${device}" ]; then
 	
 	pacstrap /mnt base linux linux-firmware grub
 	
-	genfstab -U /mnt > /mnt/etc/fstab; arch-chroot /mnt bash -c "grub-install --target=i386-pc /dev/${device}; grub-mkconfig -o /boot/grub/grub.cfg"
+	genfstab -U /mnt > /mnt/etc/fstab
+
+	arch-chroot /mnt bash -c "grub-install --target=i386-pc /dev/${device}; grub-mkconfig -o /boot/grub/grub.cfg"
 	
 	reboot
 fi
