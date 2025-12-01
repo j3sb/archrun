@@ -1,6 +1,6 @@
 #/bin/bash
 
-parted /dev/sda --script mklabel gpt mkpart ESP fat32 1MiB 513MiB set 1 esp on mkpart primary ext4 513MiB 100%
+printf "n\n\n\n+1M\nef02\nn\n\n\n\n\nw\ny\n" | gdisk /dev/sda
 
 mkfs.ext4 /dev/sda2 && mount dev/sda2 /mnt
 
